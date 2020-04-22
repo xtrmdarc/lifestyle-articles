@@ -1,0 +1,12 @@
+<div class="container-fluid form-background-page">
+  <div class="single-form-wrapper">
+    <h1 class="text-center mb-5">Login to your account</h1>
+    <%= form_for :session, url: login_path do |f| %>
+      <div class="form-group">
+        <%= f.label :username,'Username' %>    
+        <%= f.text_field :username, class: 'form-control' %>
+      </div>
+      <%= f.submit class:'form-control btn btn-primary'%>
+    <% end %>
+  </div>
+</div>
