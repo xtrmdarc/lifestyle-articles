@@ -70,7 +70,7 @@ body {
     position: absolute;
     text-transform: uppercase;
     display: block;
-    border-bottom: 1px solid $accent-color;
+    border-bottom: 2px solid $accent-color;
     padding-bottom: 2px;
     color: white;
   }
@@ -122,6 +122,66 @@ body {
     img {
       height: 30vh;
       object-fit: cover;
+    }
+  }
+}
+
+.form-background-page {
+  background-color: $muted-text;
+  display: flex;
+  height: 100%;
+}
+
+.single-form-wrapper {
+  width: 40%;
+  margin: 60px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 1px, 1px, 1px #4E443E;
+  h1 {
+    @include title;
+    font-size: 25px;
+    color: $dark-background;
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+  form {
+    label {
+      text-transform: uppercase;
+      color: $muted-text;
+      font-size: 12px;
+    }
+    .form-group {
+      margin-top: 20px;
+    }
+    input[type="submit"] {
+      background-color: $main-color;
+      border: none;
+      box-shadow: $dark-background;
+      margin-top: 20px;
+      padding: 15px;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+footer {
+  .main-nav {
+    background: $dark-background;
+    ul {
+      a.policy-links {
+        color: $main-color;
+      }
+      
+      a {
+        @include text;
+        text-transform: capitalize;
+        font-weight: 500;
+        color: white;
+        font-size: 13px;
+      }
     }
   }
 }
