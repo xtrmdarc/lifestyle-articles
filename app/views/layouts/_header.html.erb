@@ -1,13 +1,18 @@
 <nav class="main-nav">
   <a href="#" class="navbar-brand">Logo</a>
   <ul class="nav navbar-nav articles-categories">
-    <li class="nav-item"> <a href="#">HOME</a> </li>
+    <li class="nav-item">  <li> <%= link_to 'Home', root_path %> </li>
     <li class="nav-item"> <a href="#" class="cta">WRITE AN ARTICLE</a> </li>
   </ul>
   <ul class="nav navbar-nav">
-    <li><a href="#">Login</a></li>
-    <li><a href="#">|</a></li>
-    <li><a href="#">Register</a></li>
-    <li><a href="#">Buscar</a></li>    
+    <% if !current_user%>
+      <li> <%= link_to 'Login', login_path%> </li>
+      <li><a href="#">|</a></li>
+      <li><%= link_to 'Register', signup_path%> </li>
+      <li><a href="#">Buscar</a></li>
+    <% else %>
+      <li> <%= link_to current_user.username, '#' %> </li>
+      <li> <%= link_to 'Logout', logout_path, method: 'DELETE'%> </li>
+    <% end %>
   </ul>
 </nav>
