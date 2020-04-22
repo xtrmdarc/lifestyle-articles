@@ -7,6 +7,23 @@ $dark-background: #4E443E;
 $dark-text: $dark-background;
 $muted-text: #8C8884;
 
+@mixin title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+@mixin inner-article-spacing {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+@mixin text {
+  font-family: 'Open Sans', sans-serif;  
+  font-size: 14px;
+  word-spacing: 3px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -29,6 +46,82 @@ body {
         background: none;
         border: none;
       }
+    }
+
+    a.cta {
+      &:hover {
+        border-bottom: 1px solid $main-color;
+        padding-bottom: 2px;
+      }
+    }
+  }
+}
+
+.article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  .tl-cat {
+    @include title;
+    @include inner-article-spacing;
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-transform: uppercase;
+    display: block;
+    border-bottom: 1px solid $accent-color;
+    padding-bottom: 2px;
+    color: white;
+  }
+}
+
+.featured-article {
+  .info {
+    @include inner-article-spacing;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 15px;
+    .title {
+      @include title;
+      color: white;
+    }
+    .description {
+      @include text;
+      color: white;
+    }
+  }
+}
+
+.hero-article {
+  padding: 0;
+  width: 100%;
+  img {
+    max-width: 100%;
+    height: 60vh;
+    object-fit: cover;
+  }
+  .info {
+    .title {
+      color: $main-color; 
+    }
+  }
+}
+
+.voted-articles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  article {
+    width: 25%;
+    .tl-cat {
+      font-size: 14px;
+    }
+    img {
+      height: 30vh;
+      object-fit: cover;
     }
   }
 }
