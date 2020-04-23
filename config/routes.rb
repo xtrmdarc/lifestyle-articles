@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#login'
   delete '/logout', to: 'sessions#logout'
   get '/votearticle/:id/:cat_id', to: 'articles#vote_for_article', as: :votearticle
+  get '/unvotearticle/:id/:cat_id', to: 'articles#unvote_for_article', as: :unvotearticle
   root 'categories#index'
 end
