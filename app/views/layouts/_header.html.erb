@@ -1,8 +1,8 @@
 <nav class="main-nav">
-  <a href="#" class="navbar-brand">Logo</a>
+  <%= link_to 'Logo', root_path, class: 'navbar-brand' %>
   <ul class="nav navbar-nav articles-categories">
-    <li class="nav-item">  <li> <%= link_to 'Home', root_path %> </li>
-    <li class="nav-item"> <a href="#" class="cta">WRITE AN ARTICLE</a> </li>
+    <li class="nav-item"> <%= link_to 'Home', root_path %> </li>
+    <li class="nav-item"> <%= link_to 'Write an article', new_article_path%>   </li>
   </ul>
   <ul class="nav navbar-nav">
     <% if !current_user%>

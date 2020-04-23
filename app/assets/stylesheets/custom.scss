@@ -185,3 +185,30 @@ footer {
     }
   }
 }
+
+
+.new-article {
+  .form-wrapper {
+    display: flex;
+  }
+
+  .image-wrapper {
+    padding: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+  .single-form-wrapper {
+    width: 100%;
+    margin: 10px 0;
+    .form-group {
+      span {
+        font-size: 12px;
+        float: right;
+      }
+    }
+  }
+}

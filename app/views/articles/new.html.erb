@@ -1,0 +1,29 @@
+<div class="container-fluid new-article">
+  <div class="row form-wrapper">
+
+    <div class="col-md-7 image-wrapper">
+      <img src="https://www.usanetwork.com/sites/usanetwork/files/2019/07/Suits_S9-KeyArt-Show-Tile-1920x1080.jpg" alt="suits">
+    </div>
+
+    <div class="col-md-5">
+        <div class="single-form-wrapper">
+          <h1 class="text-center mb-5">Creat a new article</h1>
+          <%= form_for @article do |f| %>
+            <div class="form-group">
+              <%= f.label :title,'Title' %>
+              <%= f.text_field :title, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :text,'Content' %>
+              <%= f.text_area :text, class: 'form-control', size: '9x4' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :text,'Category' %>  <span>Select all that matches</span>
+              <%= f.select :category_ids, Category.all.map{|x| [x.name,x.id]}, {}, multiple: true, class: 'form-control' %>
+            </div>
+            <%= f.submit class:'form-control btn btn-primary'%>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
