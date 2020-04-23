@@ -212,3 +212,36 @@ footer {
     }
   }
 }
+
+.category-page {
+  padding: 0;
+  .article {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    height: 45vh;
+    img {
+      width: 50%;
+      height: 100%;
+    }
+    .information {
+      height: 100%;
+      width: 50%;
+      padding: 10px 15px;
+
+      .cat {
+        @include title;
+        color: $main-color;
+        border-bottom: 2px solid $main-color;
+        padding-bottom: 2px;
+      }
+      .title {
+        @include title;
+        margin-top: 15px;
+      }
+      .description {
+        margin-top: 15px;
+      }
+    }
+  }
+}

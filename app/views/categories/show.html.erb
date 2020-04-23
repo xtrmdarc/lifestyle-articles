@@ -1,0 +1,18 @@
+<div class="container-fluid category-page">
+  <div class="voted-articles">
+  <% @category.articles.order(:created_at).each do |art| %>
+    <article class="featured-article article">
+      <img class="img-responsive" src="https://www.usanetwork.com/sites/usanetwork/files/2019/07/Suits_S9-KeyArt-Show-Tile-1920x1080.jpg" alt="suits image" />
+      <div class="information">
+        <span class="cat"><%= @category.name%> </span> 
+        <h4 class="title">
+          <%= art.title %>
+        </h4>
+        <p class="description">
+          <%= art.text %>
+        </p>
+      </div>
+    </article>
+    <% end %>
+  </div>
+</div>

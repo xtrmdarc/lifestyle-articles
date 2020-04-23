@@ -12,8 +12,4 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
-
-  def index
-  end
-  
 end

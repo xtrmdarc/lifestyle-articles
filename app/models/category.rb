@@ -8,6 +8,6 @@ class Category < ApplicationRecord
   end
 
   def latest_article
-    articles.order(:created_at).limit(1).first
+    articles.order(created_at: :desc).limit(1).first
   end
 end
