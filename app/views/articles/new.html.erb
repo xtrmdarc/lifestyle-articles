@@ -8,14 +8,18 @@
     <div class="col-md-5">
         <div class="single-form-wrapper">
           <h1 class="text-center mb-5">Create a new article</h1>
-          <%= form_for @article do |f| %>
+          <%= form_for @article, multipart:true do |f| %>
+            <div class="form-group">
+              <%= f.label :file, 'Article Picture' %>  
+              <%= f.file_field :file %>
+            </div>
             <div class="form-group">
               <%= f.label :title,'Title' %>
               <%= f.text_field :title, class: 'form-control' %>
             </div>
             <div class="form-group">
               <%= f.label :text,'Content' %>
-              <%= f.text_area :text, class: 'form-control', size: '9x4' %>
+              <%= f.text_area :text, class: 'form-control', size: '4x3' %>
             </div>
             <div class="form-group">
               <%= f.label :text,'Category' %>  <span>Select all that matches</span>

@@ -2,7 +2,7 @@
   <div class="row">
     <article class="col-sm-12 article featured-article hero-article">
       <span class="tl-cat">FEATURED ARTICLE</span>
-      <img class="img-responsive" src="https://www.usanetwork.com/sites/usanetwork/files/2019/07/Suits_S9-KeyArt-Show-Tile-1920x1080.jpg" alt="suits image" />
+      <img class="img-responsive" src="<%= @mva.image ? @mva.image : "https://www.usanetwork.com/sites/usanetwork/files/2019/07/Suits_S9-KeyArt-Show-Tile-1920x1080.jpg" %>" alt="suits image" />
       <div class="info">
         <h1 class="title"> <%= @mva.title if @mva %> </h1>
         <p class="description"><%= @mva.text if @mva %></p>
@@ -23,14 +23,14 @@
         <%end%>
       <%else%>
         <% @categories.each do |cat|%>
-  
+            <% la = cat.latest_article %>
             <article class="featured-article article">
             <a href="<%=category_path(cat.id)%>" > 
               <span class="tl-cat"><%= cat.name%> </span>
-              <img class="img-responsive" src="https://www.usanetwork.com/sites/usanetwork/files/2019/07/Suits_S9-KeyArt-Show-Tile-1920x1080.jpg" alt="suits image" />
+              <img class="img-responsive" src="<%= la.image ? la.image : "https://www.usanetwork.com/sites/usanetwork/files/2019/07/Suits_S9-KeyArt-Show-Tile-1920x1080.jpg" %>" alt="suits image" />
               <div class="info">
                 <h4 class="title">
-                  <%= cat.latest_article.title if cat.latest_article %>
+                  <%= la.title if la %>
                 </h4>
               </div>
               </a>
