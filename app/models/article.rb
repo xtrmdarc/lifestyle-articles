@@ -7,7 +7,7 @@ class Article < ApplicationRecord
   has_many :users_voted, through: :votes, source: :user
 
   def self.most_voted_article
-    Article.left_joins(:votes).group(:id).order('COUNT(votes.id) DESC').limit(1).first
+    Article.order(vote_count: :desc).first
   end
 
   def user_voted?(userid)
