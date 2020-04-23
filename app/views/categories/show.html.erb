@@ -11,6 +11,13 @@
         <p class="description">
           <%= art.text %>
         </p>
+        <div class="votes-wrapper">
+          <%= link_to votearticle_path(art.id,@category.id), class:'vote-btn' do %>
+            <%= image_tag 'clapping.png' %>
+          <% end %>
+          <span><%= art.vote_count if art.vote_count && art.vote_count > 0 %></span>
+        </div>
+        
       </div>
     </article>
     <% end %>

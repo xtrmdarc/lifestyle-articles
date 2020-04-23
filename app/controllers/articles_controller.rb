@@ -12,4 +12,20 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
+
+  def vote_for_article
+    @article = Article.find(params[:id])
+    if @article
+      @vote = @article.votes.build
+      @vote.user_id = current_user.id
+      @article.vote_count = @article.vote_count + 1
+      if @vote.save && @article.save
+        redirect_to category_path(params[:cat_id])
+      else 
+        render 'new'
+      end
+    else 
+      render 'new'
+    end
+  end
 end

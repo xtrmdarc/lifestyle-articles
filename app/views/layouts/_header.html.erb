@@ -1,5 +1,8 @@
 <nav class="main-nav">
-  <%= link_to 'Logo', root_path, class: 'navbar-brand' %>
+  <%= link_to root_path, class: 'navbar-brand' do %>
+    <%= image_tag 'critflix_logo.png'%>
+  <% end %>
+
   <ul class="nav navbar-nav articles-categories">
     <li class="nav-item"> <%= link_to 'Home', root_path %> </li>
     <li class="nav-item"> <%= link_to 'Write an article', new_article_path%>   </li>

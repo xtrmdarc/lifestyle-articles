@@ -28,6 +28,13 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.navbar-brand {
+  img {
+    width: 120px;
+    margin-top: -15px;
+  }
+}
+
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -228,19 +235,50 @@ footer {
       height: 100%;
       width: 50%;
       padding: 10px 15px;
-
+      position: relative;
       .cat {
         @include title;
         color: $main-color;
         border-bottom: 2px solid $main-color;
         padding-bottom: 2px;
       }
+      
       .title {
         @include title;
         margin-top: 15px;
       }
+      
       .description {
         margin-top: 15px;
+      }
+      .votes-wrapper {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        & > * {
+          margin: 5px;
+        }
+        
+        .vote-btn {
+          width: 50px;
+          height: 50px;
+          border-radius: 100%;
+          border: 1px solid rgba($color: $dark-background, $alpha: 0.6) ;
+          padding: 5px;
+          display: block;
+          img {
+            width: 70%;
+            height: 80%;
+            margin-top: 5px;
+            margin-left: 5px;
+          }
+        }
       }
     }
   }
