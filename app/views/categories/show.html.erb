@@ -1,15 +1,16 @@
+<% rev = false %>
 <div class="container-fluid category-page">
   <div class="voted-articles">
-  <% @category.articles.order(created_at: :desc).each do |art| %>
+  <% @category.articles.order(created_at: :desc).each_with_index do |art,i| %>
     <article class="featured-article article">
-      <img class="img-responsive" src="<%= art.image ? art.image : "https://www.usanetwork.com/sites/usanetwork/files/2019/07/Suits_S9-KeyArt-Show-Tile-1920x1080.jpg" %>"  alt="suits image" />
-      <div class="information">
-        <span class="cat"><%= @category.name%> </span> 
+      <img class="img-responsive <%=rev ? 'image-reversed' : '' %>" src="<%= art.image ? art.image : "https://www.usanetwork.com/sites/usanetwork/files/2019/07/Suits_S9-KeyArt-Show-Tile-1920x1080.jpg" %>"  alt="suits image" />
+      <div class="information <%=rev ? 'information-reversed' : '' %>">
+        <span class="cat"><%= @category.name%> </span>
         <h4 class="title">
           <%= art.title %>
         </h4>
         <p class="description">
-          <%= art.text %>
+          <%= art.truncate_text %>
         </p>
         <div class="votes-wrapper">
           <% voted = art.user_voted?(current_user.id)%>
@@ -21,6 +22,7 @@
         
       </div>
     </article>
+    <% rev = !rev if (i+1).even? %>
     <% end %>
   </div>
 </div>

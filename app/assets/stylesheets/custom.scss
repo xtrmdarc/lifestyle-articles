@@ -10,7 +10,7 @@ $muted-text: #8C8884;
 @mixin title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 @mixin inner-article-spacing {
@@ -110,7 +110,9 @@ body {
   }
   .info {
     .title {
-      color: $main-color; 
+      @include title;
+      color: $main-color;
+      font-size: 22px;
     }
   }
 }
@@ -227,11 +229,14 @@ footer {
     display: flex;
     flex-direction: row;
     height: 55vh;
+    
     img {
       width: 50%;
       height: 100%;
+      order: 1;
     }
     .information {
+      order: 2;
       height: 100%;
       width: 50%;
       padding: 10px 15px;
@@ -250,6 +255,7 @@ footer {
       
       .description {
         margin-top: 15px;
+        height: 50%;
       }
       .votes-wrapper {
         position: absolute;
@@ -280,6 +286,14 @@ footer {
           }
         }
       }
+    }
+
+    .image-reversed {
+      order: 2;
+    }
+
+    .information-reversed {
+      order: 1;
     }
   }
 }

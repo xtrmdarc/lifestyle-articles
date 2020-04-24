@@ -17,4 +17,8 @@ class Article < ApplicationRecord
   def unvote(userid) 
     votes.where(user_id: userid).first.destroy
   end
+
+  def truncate_text
+    text.length >= 200 ? text[0..200] +' ...' : text + ' ...'
+  end
 end
