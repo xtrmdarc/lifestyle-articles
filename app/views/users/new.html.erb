@@ -1,6 +1,13 @@
 <div class="container-fluid form-background-page">
   <div class="single-form-wrapper">
     <h1 class="text-center mb-5">Create an account</h1>
+    <% if flash[:errors] %>
+      <ul>
+        <% flash[:errors].each do |error| %>
+         <li class="error"> <%= error %> </li>
+        <% end %>  
+      </ul>
+    <% end %>
     <%= form_for @user do |f| %>
       <div class="form-group">
         <%= f.label :name, 'Full name' %>

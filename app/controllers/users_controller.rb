@@ -9,7 +9,8 @@ class UsersController < ApplicationController
       login_user(@user.id)
       redirect_to categories_path
     else
-      render 'new'
+      flash[:errors] = @user.errors.full_messages
+      redirect_to signup_path 
     end
   end
 

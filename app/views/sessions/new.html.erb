@@ -1,6 +1,7 @@
 <div class="container-fluid form-background-page">
   <div class="single-form-wrapper">
     <h1 class="text-center mb-5">Login to your account</h1>
+    <span class="error"> <%= flash[:login_error] if flash[:login_error] %> </span>
     <%= form_for :session, url: login_path do |f| %>
       <div class="form-group">
         <%= f.label :username,'Username' %>    

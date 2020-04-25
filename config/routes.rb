@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :articles, only: [:new, :create]
   get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#login'
   delete '/logout', to: 'sessions#logout'

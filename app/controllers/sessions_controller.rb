@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       login_user(@user.id)
       redirect_to categories_path
     else
+      flash.now[:login_error]  = 'Username not found'
       render 'new'
     end
   end

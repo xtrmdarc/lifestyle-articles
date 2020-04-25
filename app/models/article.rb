@@ -1,4 +1,8 @@
 class Article < ApplicationRecord
+  validates :image, presence: true
+  validates :title, presence: true, length: {maximum: 40}
+  validates :text, presence: true
+
   belongs_to :author, class_name: 'User'
   has_many :votes
 
