@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :require_login, only: [:create, :new]
+
   def new
     @article = Article.new
   end
@@ -30,10 +32,10 @@ class ArticlesController < ApplicationController
       if @vote.save && @article.save
         redirect_to category_path(params[:cat_id])
       else 
-        render 'new'
+        redirect_to login_path
       end
     else 
-      render 'new'
+      redirect_to signup_path
     end
   end
 
@@ -45,10 +47,14 @@ class ArticlesController < ApplicationController
       if @article.save
         redirect_to category_path(params[:cat_id])
       else 
-        render 'new'
+        redirect_to login_path
       end
     else 
-      render 'new'
+      redirect_to signup_path
     end
+  end
+  
+  def require_login
+    redirect_to login_path unless current_user
   end
 end
