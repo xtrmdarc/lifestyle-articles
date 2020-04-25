@@ -6,19 +6,23 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    Aws.config.update(region: 'us-east-2',credentials: Aws::Credentials.new('AKIAXJHGKPLPZRJLHPW7','6TpETXTpkuSSBXBJ/czPQ968F/2Twg4e/jObtwJA'))
-    s3_service = Aws::S3::Resource.new
-    bucket_path = 'diego/'+File.basename(params[:article][:file].original_filename)
 
-    s3_file = s3_service.bucket('ror-capstone').object(bucket_path)
-    s3_file.upload_file(params[:article][:file].path, acl: 'public-read')
     @article = Article.new(author_id: current_user.id, title: params[:article][:title], text: params[:article][:text])
-    @article.category_ids = params[:article][:category_ids]
-    @article.image = s3_file.public_url.to_s
+    if params[:article][:file]
+      Aws.config.update(region: 'us-east-2',credentials: Aws::Credentials.new('AKIAXJHGKPLPZRJLHPW7','6TpETXTpkuSSBXBJ/czPQ968F/2Twg4e/jObtwJA'))
+      s3_service = Aws::S3::Resource.new
+      bucket_path = 'diego/'+File.basename(params[:article][:file].original_filename)
 
+      s3_file = s3_service.bucket('ror-capstone').object(bucket_path)
+      s3_file.upload_file(params[:article][:file].path, acl: 'public-read')
+      @article.image = s3_file.public_url.to_s
+    end
+    @article.category_ids = params[:article][:category_ids]
+  
     if @article.save
       redirect_to root_path
     else
+      flash.now[:errors] = @article.errors.full_messages
       render 'new'
     end
   end

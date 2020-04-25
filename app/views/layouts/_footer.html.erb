@@ -1,18 +1,18 @@
 <footer>
   <nav class="main-nav">
     <%= link_to root_path, class: 'navbar-brand' do %>
-      <%= image_tag 'critflix_logo.png'%>
+      <%= image_tag 'favicon.png', style: 'width:40px'%>
     <% end %>
     <ul class="nav navbar-nav">
       <li class="nav-item"> <a href="#" class="policy-links">Privacy Policy</a> </li>
       <li class="nav-item"> <a href="#" class="policy-links">Terms &amp; Conditions</a> </li>
       <li class="nav-item"> <a href="#" >&copy; Copyright 2020. All rights reserved.</a> </li>
     </ul>
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav social-icons">
       <li><a href="#">Connect with us: </a></li>
-      <li><a href="#">Twiiter</a></li>
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">Facebook</a></li>    
+      <li><a href="#"><%= image_tag 'twitter.png'%></a></li>
+      <li><a href="#"><%= image_tag 'instagram.png'%></a></li>
+      <li><a href="#"><%= image_tag 'facebook.png'%></a></li>    
     </ul>
   </nav>
 </footer>

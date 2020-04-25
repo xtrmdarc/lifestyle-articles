@@ -8,6 +8,13 @@
     <div class="col-md-5">
         <div class="single-form-wrapper">
           <h1 class="text-center mb-5">Create a new article</h1>
+          <% if flash[:errors] %>
+            <ul>
+              <% flash[:errors].each do |error| %>
+              <li class="error"> <%= error %> </li>
+              <% end %>  
+            </ul>
+          <% end %>
           <%= form_for @article, multipart:true do |f| %>
             <div class="form-group">
               <%= f.label :file, 'Article Picture' %>  

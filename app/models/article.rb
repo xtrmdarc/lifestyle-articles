@@ -1,6 +1,8 @@
 class Article < ApplicationRecord
   validates :title, presence: true
   validates :text, presence: true
+  validates_presence_of :image, message: 'not uploaded'
+  validates_presence_of :categories, message: 'need to be selected.'
 
   belongs_to :author, class_name: 'User'
   has_many :votes
