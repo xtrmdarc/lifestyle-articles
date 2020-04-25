@@ -9,7 +9,6 @@ class ArticlesController < ApplicationController
 
     @article = Article.new(author_id: current_user.id, title: params[:article][:title], text: params[:article][:text])
     if params[:article][:file]
-      Aws.config.update(region: 'us-east-2',credentials: Aws::Credentials.new('AKIAXJHGKPLPZRJLHPW7','6TpETXTpkuSSBXBJ/czPQ968F/2Twg4e/jObtwJA'))
       s3_service = Aws::S3::Resource.new
       bucket_path = 'diego/'+File.basename(params[:article][:file].original_filename)
 
