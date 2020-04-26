@@ -89,13 +89,21 @@ body {
     position: absolute;
     bottom: 0;
     margin-bottom: 15px;
+    width: 100%;
     .title {
       @include title;
       color: white;
+      overflow: hidden;
+      white-space: pre-wrap;
+      text-overflow: ellipsis;
     }
     .description {
       @include text;
       color: white;
+      overflow: hidden;
+      white-space: pre-wrap;
+      text-overflow: ellipsis;
+      width: 80%;
     }
   }
 }
