@@ -102,7 +102,7 @@ body {
       @include text;
       color: white;
       overflow: hidden;
-      white-space: pre-wrap;
+      white-space: pre;
       text-overflow: ellipsis;
       width: 80%;
     }
