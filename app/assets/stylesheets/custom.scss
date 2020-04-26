@@ -94,7 +94,7 @@ body {
       @include title;
       color: white;
       overflow: hidden;
-      white-space: pre-wrap;
+      white-space: pre;
       text-overflow: ellipsis;
     }
     .description {
