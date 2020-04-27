@@ -2,6 +2,14 @@
 
 > Criftlix is the most popular web app to write - read articles about the latest netflix's shows. Simply log in to your account and start exploring. This project consists in a simple sessions system with login and signup functionalities. You'll be redirected to the homepage where all categories will be displayed together with the most recent article written in that category. You can click the category section to  browse all articles inside a single category. I also implemented a vote system for the articles where the user can vote just once for each article.
 
+## Features
+
+- User can login only using the username
+- User sees homepage where the first row is the most voted article followed by all categories listed with the most recent article's image and title
+- Only logged in user can submit an article
+- When user click on a category inisde the homepage, they can see all articles in that category
+- User can vote only once for each article
+
 ## Built With
 
 - Ruby v2.7.0
