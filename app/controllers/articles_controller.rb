@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :require_login, only: [:create, :new, :vote_for_article, :unvote_for_article]
+  before_action :require_login, only: %i[create new vote_for_article unvote_for_article]
 
   def new
     @article = Article.new
@@ -9,14 +9,14 @@ class ArticlesController < ApplicationController
     @article = Article.new(author_id: current_user.id, title: params[:article][:title], text: params[:article][:text])
     if params[:article][:file]
       s3_service = Aws::S3::Resource.new
-      bucket_path = 'diego/'+File.basename(params[:article][:file].original_filename)
+      bucket_path = 'diego/' + File.basename(params[:article][:file].original_filename)
 
       s3_file = s3_service.bucket('ror-capstone').object(bucket_path)
       s3_file.upload_file(params[:article][:file].path, acl: 'public-read')
       @article.image = s3_file.public_url.to_s
     end
     @article.category_ids = params[:article][:category_ids]
-  
+
     if @article.save
       redirect_to root_path
     else
@@ -31,10 +31,10 @@ class ArticlesController < ApplicationController
       @article.vote(current_user.id)
       if @article.save
         redirect_to category_path(params[:cat_id])
-      else 
+      else
         redirect_to login_path
       end
-    else 
+    else
       redirect_to signup_path
     end
   end
@@ -46,14 +46,14 @@ class ArticlesController < ApplicationController
       @article.vote_count = @article.vote_count - 1
       if @article.save
         redirect_to category_path(params[:cat_id])
-      else 
+      else
         redirect_to login_path
       end
-    else 
+    else
       redirect_to signup_path
     end
   end
-  
+
   def require_login
     redirect_to login_path unless current_user
   end

@@ -10,6 +10,8 @@ AllCops:
     - "bin/**/*"
     - "config/*"
     - "Gemfile"
+    - "spec/**/*"
+    - "spec/*"
 
   DisplayCopNames: true
 
@@ -43,6 +45,10 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+Style/ExponentialNotation:
+  Enabled: false
+Style/SafeNavigation: 
+  Enabled: false
 Style/HashEachMethods:
   Enabled: true
 Style/HashTransformKeys:
@@ -61,3 +67,5 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: false

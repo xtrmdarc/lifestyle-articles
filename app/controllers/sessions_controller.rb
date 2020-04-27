@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def login
     @user = User.find_by(session_params)
@@ -8,13 +7,13 @@ class SessionsController < ApplicationController
       login_user(@user.id)
       redirect_to categories_path
     else
-      flash.now[:login_error]  = 'Username not found'
+      flash.now[:login_error] = 'Username not found'
       render 'new'
     end
   end
 
   def logout
-    logout_user(@user)
+    logout_user
     redirect_to login_path
   end
 

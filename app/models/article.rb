@@ -22,15 +22,15 @@ class Article < ApplicationRecord
   def vote(userid)
     vote = votes.build
     vote.user_id = userid
-    self.vote_count = self.vote_count + 1
+    self.vote_count = vote_count + 1
     vote.save
   end
 
-  def unvote(userid) 
+  def unvote(userid)
     votes.where(user_id: userid).first.destroy
   end
 
   def truncate_text
-    text.length >= 200 ? text[0..200] +' ...' : text + ' ...'
+    text.length >= 200 ? text[0..200] + ' ...' : text + ' ...'
   end
 end
