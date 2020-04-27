@@ -16,7 +16,14 @@ class Article < ApplicationRecord
   end
 
   def user_voted?(userid)
-    users_voted.where(id: userid).first
+    true if users_voted.where(id: userid).first
+  end
+
+  def vote(userid)
+    vote = votes.build
+    vote.user_id = userid
+    self.vote_count = self.vote_count + 1
+    vote.save
   end
 
   def unvote(userid) 
