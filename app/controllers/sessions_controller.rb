@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(session_params)
     if @user
       login_user(@user.id)
-      redirect_to categories_path
+      redirect_to root_path
     else
       flash.now[:login_error] = 'Username not found'
       render 'new'
