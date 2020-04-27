@@ -13,7 +13,7 @@
           <%= art.truncate_text %>
         </p>
         <div class="votes-wrapper">
-          <% voted = art.user_voted?(current_user.id)%>
+          <% voted = current_user && art.user_voted?(current_user.id)%>
           <%= link_to voted ?unvotearticle_path(art.id,@category.id):votearticle_path(art.id,@category.id), class:'vote-btn' do %>
             <%= image_tag voted ?'clapping_filled.png':'clapping.png' %>
           <% end %>

@@ -1,12 +1,11 @@
 class ArticlesController < ApplicationController
-  before_action :require_login, only: [:create, :new]
+  before_action :require_login, only: [:create, :new, :vote_for_article, :unvote_for_article]
 
   def new
     @article = Article.new
   end
 
   def create
-
     @article = Article.new(author_id: current_user.id, title: params[:article][:title], text: params[:article][:text])
     if params[:article][:file]
       s3_service = Aws::S3::Resource.new
