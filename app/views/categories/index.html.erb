@@ -9,7 +9,7 @@
       </div>
     </article>
     <div class="voted-articles">
-      <%if !@categories%>
+      <%if @categories%>
         <% 8.times do |i|%>
           <article class="featured-article article">
             <span class="tl-cat">FEATURED ARTICLE</span>
@@ -22,8 +22,8 @@
           </article>
         <%end%>
       <%else%>
-        <% @categories.each do |cat|%>
-            <% la = cat.latest_article %>
+        <% Category.includes(:latest_articles).each do |cat|%>
+            <% la = cat.latest_articles.first %>
             <article class="featured-article article">
             <a href="<%=category_path(cat.id)%>" > 
               <span class="tl-cat"><%= cat.name%> </span>
