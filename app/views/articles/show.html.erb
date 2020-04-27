@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="article-wrapper">
+    <%= image_tag @article.image %>
+    <div class="info">
+      <h1 class="title"><%= @article.title%></h1>
+      <p class="description"><%= @article.text%></p>
+      <div class="footer-info">
+        <div class="author-info">
+          <span>Written by : <strong><%= @article.author.name %> </strong></span>
+        </div>
+        <div class="vote-wrapper">
+          <% voted = current_user && @article.user_voted?(current_user.id)%>
+            <%= link_to voted ?unvotearticle_path(@article.id):votearticle_path(@article.id), class:'vote-btn' do %>
+            <%= image_tag voted ?'clapping_filled.png':'clapping.png' %>
+          <% end %>
+          <span><%= @article.vote_count if @article.vote_count && @article.vote_count > 0 %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

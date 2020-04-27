@@ -28,6 +28,7 @@ class Article < ApplicationRecord
 
   def unvote(userid)
     votes.where(user_id: userid).first.destroy
+    self.vote_count = vote_count - 1
   end
 
   def truncate_text

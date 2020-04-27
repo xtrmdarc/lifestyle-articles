@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
     if @article
       @article.vote(current_user.id)
       if @article.save
-        redirect_to category_path(params[:cat_id])
+        redirect_to request.referer
       else
         redirect_to login_path
       end
@@ -39,13 +39,16 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def show
+    @article = Article.find(params[:id])
+  end
+
   def unvote_for_article
     @article = Article.find(params[:id])
     if @article
       @article.unvote(current_user.id)
-      @article.vote_count = @article.vote_count - 1
       if @article.save
-        redirect_to category_path(params[:cat_id])
+        redirect_to request.referer
       else
         redirect_to login_path
       end

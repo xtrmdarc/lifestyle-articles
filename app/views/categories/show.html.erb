@@ -12,12 +12,17 @@
         <p class="description">
           <%= art.truncate_text %>
         </p>
-        <div class="votes-wrapper">
-          <% voted = current_user && art.user_voted?(current_user.id)%>
-          <%= link_to voted ?unvotearticle_path(art.id,@category.id):votearticle_path(art.id,@category.id), class:'vote-btn' do %>
-            <%= image_tag voted ?'clapping_filled.png':'clapping.png' %>
-          <% end %>
-          <span><%= art.vote_count if art.vote_count && art.vote_count > 0 %></span>
+        <div class="actions">
+          <div>
+            <%= link_to 'View full &#8594;'.html_safe, article_path(art.id)  %>
+          </div>
+          <div class="votes-wrapper">
+            <% voted = current_user && art.user_voted?(current_user.id)%>
+            <%= link_to voted ?unvotearticle_path(art.id):votearticle_path(art.id), class:'vote-btn' do %>
+              <%= image_tag voted ?'clapping_filled.png':'clapping.png' %>
+            <% end %>
+            <span><%= art.vote_count if art.vote_count && art.vote_count > 0 %></span>
+          </div>
         </div>
         
       </div>
