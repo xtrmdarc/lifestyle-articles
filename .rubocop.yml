@@ -67,5 +67,3 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: false
