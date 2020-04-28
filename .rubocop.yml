@@ -45,8 +45,6 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
-Style/ExponentialNotation:
-  Enabled: false
 Style/SafeNavigation: 
   Enabled: false
 Style/HashEachMethods:
