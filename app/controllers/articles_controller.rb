@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(articles_params)
     @article.author_id = current_user.id
-    
+
     if params[:article][:file]
       s3_service = Aws::S3::Resource.new
       bucket_path = 'diego/' + File.basename(params[:article][:file].original_filename)
@@ -63,7 +63,7 @@ class ArticlesController < ApplicationController
     redirect_to login_path unless current_user
   end
 
-  private 
+  private
 
   def articles_params
     params.require('article').permit(:title, :text)
