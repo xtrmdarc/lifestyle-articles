@@ -11,13 +11,13 @@
     <%= form_for @user do |f| %>
       <div class="form-group">
         <%= f.label :name, 'Full name' %>
-        <%= f.text_field :name, class: 'form-control' %>
+        <%= f.text_field :name, class: 'form-control', id: 'name' %>
       </div>
       <div class="form-group">
         <%= f.label :username,'Username' %>    
-        <%= f.text_field :username, class: 'form-control' %>
+        <%= f.text_field :username, class: 'form-control', id: 'username' %>
       </div>
-      <%= f.submit class:'form-control btn btn-primary'%>
+      <%= f.submit class:'form-control btn btn-primary', id: 'submit'%>
     <% end %>
   </div>
 </div>

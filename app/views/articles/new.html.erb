@@ -17,20 +17,20 @@
           <% end %>
           <%= form_for @article, multipart:true do |f| %>
             <div class="form-group">
-              <%= f.label :file, 'Article Picture' %>  
-              <%= f.file_field :file %>
+              <%= f.label :file, 'Article Picture'%>  
+              <%= f.file_field :file, id: 'file' %>
             </div>
             <div class="form-group">
               <%= f.label :title,'Title' %>
-              <%= f.text_field :title, class: 'form-control' %>
+              <%= f.text_field :title, class: 'form-control',id: 'title' %>
             </div>
             <div class="form-group">
               <%= f.label :text,'Content' %>
-              <%= f.text_area :text, class: 'form-control', size: '4x3' %>
+              <%= f.text_area :text, class: 'form-control', size: '4x3', id: 'text' %>
             </div>
             <div class="form-group">
               <%= f.label :text,'Category' %>  <span>Select all that matches</span>
-              <%= f.select :category_ids, Category.all.map{|x| [x.name,x.id]}, {}, multiple: true, class: 'form-control' %>
+              <%= f.select :category_ids, Category.all.map{|x| [x.name,x.id]}, {}, multiple: true, class: 'form-control', id: 'categories' %>
             </div>
             <%= f.submit class:'form-control btn btn-primary'%>
           <% end %>
