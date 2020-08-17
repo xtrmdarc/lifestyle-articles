@@ -1,6 +1,6 @@
 # Critflix App
 
-> Criftlix is the most popular web app to write - read articles about the latest netflix's shows. Simply log in to your account and start exploring.  This project consists of a simple sessions system with login and sign-up functionalities. You'll be redirected to the homepage where all categories will be displayed together with the most recent article written in that category. You can click the category section to browse all articles inside a single category. I also implemented a voting system for the articles where the user can vote just once for each article.
+> Criftlix is the most popular web app to write - read articles about the latest Netflix shows. Simply log in to your account and start exploring.  This project consists of a simple session system with login and sign-up functionalities. You'll be redirected to the homepage where all categories will be displayed together with the most recent article written in that category. You can click the category section to browse all articles inside a single category. I also implemented a voting system for the articles where the user can vote just once for each article.
 
 
 ## Features
@@ -38,7 +38,7 @@ Postgres: >=9.5
 
 ### Setup
 
-Instal gems with:
+Install gems with:
 
 ```
 bundle install
@@ -84,7 +84,7 @@ Thanks to [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) for her awes
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](issues/).
 
